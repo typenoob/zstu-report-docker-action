@@ -14,7 +14,7 @@ import traceback
 class HealthRep:
     def __init__(self, gui=False, chromedriver_logging=False) -> None:
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("--proxy-server=http://119.8.87.244:80")
+        chrome_options.add_argument("--proxy-server=http://106.14.197.76:8888")
         if not chromedriver_logging:
             chrome_options.add_argument('--silent')
             chrome_options.add_argument("--log-level=3")
@@ -32,7 +32,6 @@ class HealthRep:
         return self.__wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
 
     def login(self, username: str, password: str) -> bool:
-        print(3)
         self.__username = username
         self.__flag = False
         try:
@@ -134,19 +133,16 @@ class HealthRep:
 
 
 def main():
-    print(1)
     logging.basicConfig(level=logging.INFO, filename="daily.log", filemode="w",
                         format="%(asctime)s %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
 
     hr = HealthRep()
-    print(2)
     if hr.login(sys.argv[1], sys.argv[2]) and hr.do():
         logging.info('succeed: {}'.format(sys.argv[1]))
         hr.destruct()
         print('successful!')
         return('successful!')
     else:
-        print(4)
         logging.info('failed: {}'.format(sys.argv[1]))
         hr.destruct()
         print('error!')

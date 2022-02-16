@@ -32,6 +32,7 @@ class HealthRep:
         return self.__wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
 
     def login(self, username: str, password: str) -> bool:
+        print(3)
         self.__username = username
         self.__flag = False
         try:
@@ -133,16 +134,19 @@ class HealthRep:
 
 
 def main():
+    print(1)
     logging.basicConfig(level=logging.INFO, filename="daily.log", filemode="w",
                         format="%(asctime)s %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
 
     hr = HealthRep()
+    print(2)
     if hr.login(sys.argv[1], sys.argv[2]) and hr.do():
         logging.info('succeed: {}'.format(sys.argv[1]))
         hr.destruct()
         print('successful!')
         return('successful!')
     else:
+        print(4)
         logging.info('failed: {}'.format(sys.argv[1]))
         hr.destruct()
         print('error!')

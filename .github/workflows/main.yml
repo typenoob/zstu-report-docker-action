@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Check out
         id: report
-        uses: typenoob/zstu-report-docker-action@master
+        uses: typenoob/zstu-report-docker-action@main
         with:
           username: '2019329600124'
           password: 'Chen2001'

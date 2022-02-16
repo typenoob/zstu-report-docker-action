@@ -1,15 +1,23 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'zstu-report'
+description: 'do zstu daily report'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  username:
+    description: 'your zstu sso username/student number'
     required: true
-    default: 'World'
+    default: 'default'
+  password:
+    description: 'your zstu sso password'
+    required: true
+    default: 'default'
+  location:
+    description: 'your current living city'
+    required: true
+    default: '浙江省 杭州市 钱塘区'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  message: # id of output
+    description: 'The return of the execution'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.username },{ inputs.password },{ inputs.location }}

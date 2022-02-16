@@ -7,8 +7,7 @@ RUN apt-get update \
     && apt autoremove -y \
     && apt-get clean \
     && pip3 install --upgrade pip \
-    && pip3 install -r requirements.txt \
-    && cp run.sh /bin/report
+    && pip3 install -r requirements.txt
 
 WORKDIR /srv/zstu   
 ENTRYPOINT ["/entrypoint.sh"]

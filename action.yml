@@ -20,4 +20,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.username },{ inputs.password },{ inputs.location }}
+    - ${{ inputs.username }}
+    - ${{ inputs.password }}
+    - ${{ inputs.location }}

@@ -13,4 +13,4 @@ jobs:
           password: 'Chen2001'
           location: '浙江省 宁波市 慈溪市'
       - name: Get the return
-        run: echo "The time was ${{ steps.report.outputs.result }}"
+        run: echo "The time was ${{ steps.report.outputs.message }}"

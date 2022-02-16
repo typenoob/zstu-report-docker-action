@@ -1,8 +1,14 @@
-# Container image that runs your code
-FROM alpine:3.10
+FROM joyzoursky/python-chromedriver:latest
+COPY . /srv/zstu
 
-# Copies your code file from your action repository to the filesystem path `/` of the container
-COPY entrypoint.sh /entrypoint.sh
+WORKDIR /srv/zstu
+RUN apt-get update \
+    && apt-get install -y jq cron \
+    && apt autoremove -y \
+    && apt-get clean \
+    && pip3 install --upgrade pip \
+    && pip3 install -r requirements.txt \
+    && cp run.sh /bin/report
 
-# Code file to execute when the docker container starts up (`entrypoint.sh`)
+WORKDIR /srv/zstu   
 ENTRYPOINT ["/entrypoint.sh"]

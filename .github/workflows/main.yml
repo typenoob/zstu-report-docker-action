@@ -9,8 +9,8 @@ jobs:
         id: report
         uses: typenoob/zstu-report-docker-action@main
         with:
-          username: '2019329600124'
-          password: 'Chen2001'
-          location: '浙江省 宁波市 慈溪市'
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          location: ${{ secrets.LOCATION }}
       - name: Get the return
-        run: echo "The time was ${{ steps.report.outputs.message }}"
+        run: echo "The result was ${{ steps.report.outputs.message }}"

@@ -3,7 +3,7 @@ source /etc/profile
 cd /srv/zstu
 count=0
 stoped=5 #最大运行次数
-result=`python3 main.py 1 2 3`
+result=`python3 main.py $1 $2 $3`
 while [[ ! $result == "successful!" ]]    # 判断程序上次运行是否正常结束
 do
     echo "Process exits with errors! Restarting!"
@@ -14,7 +14,7 @@ do
     else
 	count=`expr $count + 1`
     fi
-    result=`python3 main.py 1 2 3`
+    result=`python3 main.py $1 $2 $3`
 done
 
 #使用方法 sh ./send_message.sh "发送内容"

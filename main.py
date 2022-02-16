@@ -3,7 +3,7 @@ import json
 import logging
 import time
 from random import choice
-import os
+import sys
 import requests
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -67,7 +67,7 @@ class HealthRep:
             detailed_area_input = self.__get_element_by_xpath(
                 '//*[@id="iform"]/div[1]/div[3]/form/div[6]/div/div/div[2]/div/div/div/div[1]/input')
             detailed_area_input.clear()
-            detailed_area_input.send_keys(env['location'])
+            detailed_area_input.send_keys(sys.argv[3])
             # 因为数据有自动填充，所以这一段不需要了
             # workflow = \
             # [
@@ -136,18 +136,17 @@ def main():
                         format="%(asctime)s %(message)s", datefmt="%Y-%m-%d %H:%M:%S")
 
     hr = HealthRep()
-    if hr.login(env['username'], env['password']) and hr.do():
-        logging.info('succeed: {}'.format(env['username']))
+    if hr.login(sys.argv[1], sys.argv[2]) and hr.do():
+        logging.info('succeed: {}'.format(sys.argv[1]))
         hr.destruct()
         print('successful!')
         return('successful!')
     else:
-        logging.info('failed: {}'.format(env['username']))
+        logging.info('failed: {}'.format(sys.argv[1]))
         hr.destruct()
         print('error!')
         return('error!')
 
 
 if __name__ == '__main__':
-    env = os.environ
     main()

@@ -3,9 +3,9 @@ on: [push]
 jobs:
   zstu-daily-report-job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job to do zstu daily report
     steps:
-      - name: Check out
+      - name: Run
         id: report
         uses: typenoob/zstu-report-docker-action@main
         with:

@@ -14,7 +14,7 @@ import traceback
 class HealthRep:
     def __init__(self, gui=False, chromedriver_logging=False) -> None:
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("--proxy-server=http://106.14.197.76:8888")
+        chrome_options.add_argument("--proxy-server=http://218.106.63.199:21080")
         if not chromedriver_logging:
             chrome_options.add_argument('--silent')
             chrome_options.add_argument("--log-level=3")

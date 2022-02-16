@@ -9,7 +9,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
-
+import traceback
 
 class HealthRep:
     def __init__(self, gui=False, chromedriver_logging=False) -> None:
@@ -56,7 +56,7 @@ class HealthRep:
             self.__get_element_by_xpath(
                 '//*[@id="iform"]/div[1]/div[3]/form/div[4]/div/div/div[2]/div/div/div/div/div')
         except Exception as e:
-            print(e)
+            traceback.print_exc()
             return False
         else:
             return True

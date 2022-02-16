@@ -10,4 +10,4 @@ RUN apt-get update \
     && pip3 install -r requirements.txt
 
 WORKDIR /srv/zstu   
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/srv/zstu/entrypoint.sh"]

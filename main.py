@@ -14,7 +14,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 class HealthRep:
     def __init__(self, gui=False, chromedriver_logging=False) -> None:
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("--proxy-server=http://218.244.147.59:3128")
+        chrome_options.add_argument("--proxy-server=http://119.8.87.244:80")
         if not chromedriver_logging:
             chrome_options.add_argument('--silent')
             chrome_options.add_argument("--log-level=3")

@@ -5,12 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - name: zstu-daily-report step
-        uses: actions/zstu-daily-report@v1
+      - name: Check out
+        id: report
+        uses: actions/zstu-report-docker-action@v1
         with:
           username: '2019329600124'
           password: 'Chen2001'
           location: '浙江省 宁波市 慈溪市'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Get the return
+        run: echo "The time was ${{ steps.report.outputs.result }}"
